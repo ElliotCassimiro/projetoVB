@@ -3,18 +3,23 @@
 
     <head>
         <meta charset="utf-8">
+        <!-- Define a viewport para dispositivos móveis -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Listagem de Produtos</title>
+        <!-- Importa o arquivo CSS para estilizar a página -->
         <link rel="stylesheet" href="/projetoProdutos/css/style.css">
     </head>
     <body>
+        <!-- Container principal que contém todo o conteúdo da página -->
         <div class="container">
             <h1>Listagem de Produtos</h1>
+        <!-- Botões para navegar entre as páginas -->
                 <div class="buttons">
                             <a href="cadastro.php"><button>Cadastro</button></a>
                             <a href="editar.php"><button>Edição</button></a>
                             <a href="listagem.php"><button>Listagem</button></a>
                 </div>
+        <!-- Tabela para exibir a lista de produtos -->
             <table>
                 <thead>
                     <tr>
@@ -29,6 +34,7 @@
                 </thead>
                 <tbody>
                     <?php
+                    // Conecta ao banco de dados e exibe a lista de produtos na tabela
                     include '../php/conexao.php';
                     $result = $conexao->query("SELECT * FROM `produtos`");
                     while ($row = $result->fetch_assoc()) {
@@ -48,10 +54,11 @@
 
                         echo "</tr>";
                     }
-
+                    // Verifica se o formulário foi enviado
                     if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+                    // Verifica se o nome do produto foi enviado
                         $nome = $_POST["nome"];
-
+                    // Conecta ao banco de dados e deleta o produto
                         echo "Nome do produto: " . htmlspecialchars($nome, ENT_QUOTES, 'UTF-8');
                     
                         if ($stmt = $conexao->prepare("DELETE FROM `produtos` WHERE `nome` = ?")) {
@@ -62,9 +69,9 @@
                         } else {
                             echo "Erro: " . $stmt->error;
                         }
-                    
+                    // Fecha a conexão com o banco de dados
                         $conexao->close();
-                        // Redireciona o usuário de volta para a página da lista de produtos
+                    // Redireciona o usuário de volta para a página da lista de produtos
                         header("Location: listagem.php");
                         exit;
                     }

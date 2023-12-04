@@ -2,20 +2,24 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
+        <!-- Define a viewport para dispositivos móveis -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <title>Cadastro de Produtos</title>
+        <!-- Importa o arquivo CSS para estilizar a página -->
         <link rel="stylesheet" href="/projetoProdutos/css/style.css">
     </head>
     <body>
-        <div class="container">
+        <div class="container"><!-- Container principal que contém todo o conteúdo da página -->
         
             <h1>Cadastro de Produtos</h1><br>
+        <!-- Botões para navegar entre as páginas -->
                 <div class="buttons">
                     <a href="cadastro.php"><button>Cadastro</button></a>
                     <a href="editar.php"><button>Edição</button></a>
                     <a href="listagem.php"><button>Listagem</button></a>
                 </div>
-
+        <!-- Formulário para cadastrar produtos -->
             <form action="/projetoProdutos/php/insert.php" method="POST">                        
 
                 <label for="nome">Nome do Produto:</label><br>
