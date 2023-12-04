@@ -31,3 +31,9 @@ A função `updateProduct()` é usada para atualizar os detalhes de um produto e
 ### Exclusão de Produtos
 
 A função `deleteProduct()` é usada para excluir um produto existente do banco de dados.
+
+
+
+
+https://github.com/ElliotCassimiro/projetoVB/assets/48328072/5ae1058d-71b4-4ae7-aaaf-7ac79d733f00
+
